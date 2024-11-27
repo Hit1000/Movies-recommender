@@ -33,5 +33,5 @@ npm run build
 ### Start the app
 
 ```shell
-npm run start
+npm run dev
 ```
