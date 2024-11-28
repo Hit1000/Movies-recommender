@@ -7,18 +7,23 @@ const Footer = () => {
           <a
             href="https://github.com/Hit1000"
             target="_blank"
+            rel="noopener noreferrer" // Added rel for security
             className="font-medium underline underline-offset-4"
           >
-            you
+            <span className="transition-transform duration-300 ease-in-out hover:scale-125 inline-block underline">
+              HiT
+            </span>
           </a>
           . The source code is available on{" "}
           <a
             href="https://github.com/Hit1000"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer" // Added rel for security
             className="font-medium underline underline-offset-4"
           >
+            <span className="transition-transform duration-300 ease-in-out hover:scale-125 inline-block underline">
             GitHub
+            </span>
           </a>
           .
         </p>
@@ -26,4 +31,5 @@ const Footer = () => {
     </footer>
   );
 };
+
 export default Footer;
