@@ -17,7 +17,7 @@ const LoginPage = () => {
     <div className="h-screen w-full hero-bg">
       <header className="max-w-6xl mx-auto flex items-center justify-between p-4">
         <Link to={"/"}>
-          <img src="/netflix-logo.png" alt="logo" className="w-52" />
+          <img src="/logo.png" alt="logo" className="w-52" />
         </Link>
       </header>
 
@@ -72,7 +72,7 @@ const LoginPage = () => {
             </button>
           </form>
           <div className="text-center text-gray-400">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link to={"/signup"} className="text-red-500 hover:underline">
               Sign Up
             </Link>

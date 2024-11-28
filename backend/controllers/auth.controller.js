@@ -56,7 +56,15 @@ export async function signup(req, res) {
     const hashedPassword = await bcryptjs.hash(password, salt);
 
     // taking random images
-    const PROFILE_PICS = ["/avatar-1.jpg", "/avatar-2.jpg", "/avatar-3.jpg", "/avatar-4.jpg", "/avatar-5.jpg", "/avatar-6.jpg", "/avatar-7.jpg"];
+    const PROFILE_PICS = [
+      "/avatar-1.jpg",
+      "/avatar-2.jpg",
+      "/avatar-3.jpg",
+      "/avatar-4.jpg",
+      "/avatar-5.jpg",
+      "/avatar-6.jpg",
+      "/avatar-7.jpg",
+    ];
 
     const image = PROFILE_PICS[Math.floor(Math.random() * PROFILE_PICS.length)];
 
@@ -131,6 +139,16 @@ export async function logout(req, res) {
     res.status(200).json({ success: true, message: "Logged out successfully" });
   } catch (error) {
     console.log("Error in logout controller", error.message);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+}
+
+export async function authCheck(req, res) {
+  try {
+    console.log("req.user:", req.user);
+    res.status(200).json({ success: true, user: req.user });
+  } catch (error) {
+    console.log("Error in authCheck controller", error.message);
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 }

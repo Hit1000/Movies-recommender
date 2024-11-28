@@ -32,23 +32,7 @@ const SignUpPage = () => {
           </h1>
 
           <form className="space-y-4" onSubmit={handleSignUp}>
-            <div>
-              <label
-                htmlFor="email"
-                className="text-sm font-medium text-gray-300 block"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                className="w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline-none focus:ring"
-                placeholder="you@example.com"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-
+            
             <div>
               <label
                 htmlFor="username"
@@ -63,6 +47,23 @@ const SignUpPage = () => {
                 id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="email"
+                className="text-sm font-medium text-gray-300 block"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                className="w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline-none focus:ring"
+                placeholder="you@example.com"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
