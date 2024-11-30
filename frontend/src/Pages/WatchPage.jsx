@@ -10,7 +10,6 @@ import { ORIGINAL_IMG_BASE_URL, SMALL_IMG_BASE_URL } from "../utils/constants";
 
 import { Navbar, WatchPageSkeleton } from "../components";
 
-
 const WatchPage = () => {
   const { id } = useParams();
   const [trailers, setTrailers] = useState([]);
@@ -68,8 +67,8 @@ const WatchPage = () => {
 
     getContentDetails();
   }, [contentType, id]);
-//   console.log(content);
-  
+  //   console.log(content);
+
   const handleNext = () => {
     if (currentTrailerIdx < trailers.length - 1)
       setCurrentTrailerIdx(currentTrailerIdx + 1);

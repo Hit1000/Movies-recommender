@@ -4,7 +4,15 @@ import { Toaster } from "react-hot-toast";
 
 import { useAuthStore } from "./store/authUser";
 
-import { HomePage, LoginPage, SearchPage, SignUpPage, WatchPage } from "./Pages";
+import {
+  HomePage,
+  LoginPage,
+  NotFoundPage,
+  SearchHistoryPage,
+  SearchPage,
+  SignUpPage,
+  WatchPage,
+} from "./Pages";
 import { Footer } from "./components";
 import { Loader } from "lucide-react";
 
@@ -41,9 +49,15 @@ function App() {
           path="/watch/:id"
           element={user ? <WatchPage /> : <Navigate to={"/login"} />}
         />
-        <Route path='/search' element={user ? <SearchPage /> : <Navigate to={"/login"} />} />
-        {/* <Route path='/history' element={user ? <SearchHistoryPage /> : <Navigate to={"/login"} />} /> */}
-        {/* <Route path='/*' element={<NotFoundPage />} /> */}
+        <Route
+          path="/search"
+          element={user ? <SearchPage /> : <Navigate to={"/login"} />}
+        />
+        <Route
+          path="/history"
+          element={user ? <SearchHistoryPage /> : <Navigate to={"/login"} />}
+        />
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
 
