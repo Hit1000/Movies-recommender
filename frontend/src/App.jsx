@@ -20,7 +20,7 @@ function App() {
   const { user, isCheckingAuth, authCheck } = useAuthStore();
   useEffect(() => {
     authCheck();
-  }, []);
+  }, [authCheck]);
   // console.log(user);
 
   if (isCheckingAuth) {
