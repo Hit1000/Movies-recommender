@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Bookmark,
+  BookmarkCheck,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import axios from "axios";
 
 import { useContentStore } from "../store/content";
@@ -17,6 +22,7 @@ const WatchPage = () => {
   const [loading, setLoading] = useState(true);
   const [content, setContent] = useState({});
   const [similarContent, setSimilarContent] = useState([]);
+  const [isBookmark, setIsBookmark] = useState(false);
   const { contentType } = useContentStore();
 
   const sliderRef = useRef(null);
@@ -67,7 +73,7 @@ const WatchPage = () => {
 
     getContentDetails();
   }, [contentType, id]);
-  //   console.log(content);
+  console.log(content);
 
   const handleNext = () => {
     if (currentTrailerIdx < trailers.length - 1)
@@ -176,10 +182,29 @@ const WatchPage = () => {
           className="flex flex-col md:flex-row items-center justify-between gap-20 
 				max-w-6xl mx-auto"
         >
-          <div className="mb-4 md:mb-0">
-            <h2 className="text-5xl font-bold text-balance">
-              {content?.title || content?.name}
-            </h2>
+          <div className="mb-4 md:mb-0 ">
+            <div className="flex justify-between">
+              <h2 className="text-5xl font-bold text-balance">
+                {content?.title || content?.name}
+              </h2>
+              <div>
+                {isBookmark ? (
+                  <BookmarkCheck
+                    className="text-green-400 size-12"
+                    onClick={() => {
+                      setIsBookmark(!isBookmark);
+                    }}
+                  />
+                ) : (
+                  <Bookmark
+                    className="size-12"
+                    onClick={() => {
+                      setIsBookmark(!isBookmark);
+                    }}
+                  />
+                )}
+              </div>
+            </div>
 
             <p className="mt-2 text-lg">
               {formatReleaseDate(

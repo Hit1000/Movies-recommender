@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { useContentStore } from "../store/content";
 import Navbar from "../components/Navbar";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { ORIGINAL_IMG_BASE_URL } from "../utils/constants";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SearchPage = () => {
   const [activeTab, setActiveTab] = useState("movie");
   const [searchTerm, setSearchTerm] = useState("");
-
+  const navigate = useNavigate();
   const [results, setResults] = useState([]);
   const { setContentType } = useContentStore();
 
@@ -39,6 +39,10 @@ const SearchPage = () => {
   return (
     <div className="bg-black min-h-screen text-white">
       <Navbar />
+      <button className="absolute z-50 p-4 right-20 top-20 rounded-lg hover:bg-gray-700"
+      onClick={() => navigate('/')}>
+        <X />
+      </button>
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-center gap-3 mb-4">
           <button
@@ -66,7 +70,6 @@ const SearchPage = () => {
             Person
           </button>
         </div>
-
         <form
           className="flex gap-2 items-stretch mb-8 max-w-2xl mx-auto"
           onSubmit={handleSearch}
