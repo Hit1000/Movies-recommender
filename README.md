@@ -1,4 +1,4 @@
-<h1 align="center">MERN Netflix Clone 🎬</h1>
+<h1 align="center">MERN Movies Recommender 🎬</h1>
 
 
 -   ⚛️ Tech Stack: React.js, Node.js, Express.js, MongoDB, Tailwind
